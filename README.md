@@ -5,6 +5,7 @@ This is a fork of Swizzy's PS3DumpChecker program to allow the checking of the p
 Huge thanks to Littlebalup's PyPS3Checker for the offsets making this project possible.
 
 Status:
+
 PS3Xploit 239MB NAND: ✔️
 
 PS3Xploit 239MB eMMC: ❓ (I ported the offsets the same way I ported the NAND offsets, so this should hopefully work).
