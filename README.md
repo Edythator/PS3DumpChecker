@@ -1,11 +1,11 @@
-PS3DumpChecker
+A PS3DumpChecker fork
 ==============
 
-A PS3 NOR/NAND Dump Checker/Verifier
+This is a fork of Swizzy's PS3DumpChecker program to allow the checking of the partial NAND/eMMC dumps that PS3Xploit creates. 
+Huge thanks to Littlebalup's PyPS3Checker for the offsets making this project possible.
 
-NOTE: Nobody takes ANY responsibility for any false negative/false positive given by this app, the responsibilty that your dump is valid is YOURS and yours alone...
-this tool should be treated as an easy way to make a quick check to see if it's at all worth looking closer at, to really verify your dump read the latest information here:
+Status:
+PS3Xploit 239MB NAND: ✔️
+PS3Xploit 239MB eMMC: ❓ (I ported the offsets the same way I ported the NAND offsets, so this should hopefully work).
 
-http://ps3devwiki.com/wiki/Validating_flash_dumps
-
-You may use this tool any way you like, you may also use the code on this repo any way you like
+NOTE: Nobody takes ANY responsibility for any false negative/false positive given by this app, the responsibilty that your dump is valid is YOURS and yours alone.
