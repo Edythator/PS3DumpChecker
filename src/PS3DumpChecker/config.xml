@@ -83,7 +83,7 @@
       <datalist name="001.04   bootldr Statistics (Top)" offset="0" ldrsize="2">
         <datatreshold key="*">0,5</datatreshold>
       </datalist>
-      <datafill name="001.05   bootldr (Top) 0xFF Filled Area" regionstart="0" regionsize="40000" ldrsize="2">FF</datafill> 
+      <datafill name="001.05   bootldr (Top) 0xFF Filled Area" regionstart="0" regionsize="40000" ldrsize="2">FF</datafill>
     </bootldr_top_region>
     <Header_Magic>
       <datafill name="002.01   Header Magic 0x00 Filled Area 0" offset="40000" size="10">00</datafill>
@@ -136,7 +136,8 @@
       <binentry name="004.04   metldr Name" offset="40820" ascii="true">
         6D65746C647200000000000000000000
         00000000000000000000000000000000
-      </binentry> <!-- METLDR -->
+      </binentry>
+      <!-- METLDR -->
       <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000EDD2F6C622ECA7FAE0D2F76B5D4</binentry>
       <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000ED648F43FDE3EEE37119C673663</binentry>
       <binentry name="004.05   metldr RevKey" ismulti="true" offset="40840">00000EBB94C6A30BBF2F50752E8DC052</binentry>
@@ -177,7 +178,7 @@
       <datalist name="004.07   metldr Statistics" offset="40840" ldrsize="40842">
         <datatreshold key="*">0,52</datatreshold>
       </datalist>
-      <datafill name="004.08   asecure_loader 0x00 Filled Area" regionstart="40840" regionsize="2E7C0" ldrsize="40842">00</datafill> 
+      <datafill name="004.08   asecure_loader 0x00 Filled Area" regionstart="40840" regionsize="2E7C0" ldrsize="40842">00</datafill>
     </asure_loader_region>
     <eEID_region>
       <binentry name="005.01   eEID Header" offset="80800">0000000600001DD00000000000000000</binentry>
@@ -344,9 +345,11 @@
       <binentry name="010.01   cvtrm Header" offset="EC0000" ascii="true">534345495654524D000000000000</binentry>
       <binentry name="010.02   cvtrm Header Static 1" offset="EC0010">0000000000E802000000000000000028</binentry>
       <binentry name="010.03   vtrm Magic 1" offset="EC0020" ascii="true">000000005654524D</binentry>
- <!-- <datafill name="010.04   cvtrm 0xFF Filled Area 0" offset="EC011C" size="2E4">FF</datafill> --> <!-- Data filled on some CECHA. -->
+      <!-- <datafill name="010.04   cvtrm 0xFF Filled Area 0" offset="EC011C" size="2E4">FF</datafill> -->
+      <!-- Data filled on some CECHA. -->
       <binentry name="010.05   vtrm Magic 2" offset="EC0400" ascii="true">000000005654524D</binentry>
- <!-- <datafill name="010.06   vtrm 0xFF Filled Area" vtrmentrycount_offset="EC043E" regionstart="EC28C0" regionsize="36C00">FF</datafill> --> <!-- Data filled on some CECHA. -->
+      <!-- <datafill name="010.06   vtrm 0xFF Filled Area" vtrmentrycount_offset="EC043E" regionstart="EC28C0" regionsize="36C00">FF</datafill> -->
+      <!-- Data filled on some CECHA. -->
       <datafill name="010.07   cvtrm 0x00 Filled Area" offset="EFF000" size="1000">00</datafill>
     </cvtrm_region>
     <cell_ext_os_area>
@@ -442,7 +445,7 @@
       <datalist name="012.04   bootldr Statistics (Bottom)" offset="F000000" ldrsize="F000002">
         <datatreshold key="*">0,5</datatreshold>
       </datalist>
-      <datafill name="012.05   bootldr 0xFF Filled Area" regionstart="F000000" regionsize="40000" ldrsize="F000002">FF</datafill> 
+      <datafill name="012.05   bootldr 0xFF Filled Area" regionstart="F000000" regionsize="40000" ldrsize="F000002">FF</datafill>
     </bootldr_bottom_region>
     <datamatches>
       <datamatchid id="0">bootldr size</datamatchid>
@@ -648,13 +651,421 @@
         <skuentry type="bootldr1">2F4B</skuentry>
         <skuentry type="bootldrsize">2F4F0</skuentry>
       </skulist>
-      <skulist name="CECHGxx (SEM-001)" minver="2.30"> <!-- Refurbished -->
+      <skulist name="CECHGxx (SEM-001)" minver="2.30">
+        <!-- Refurbished -->
         <skuentry type="idps">05</skuentry>
         <skuentry type="metldr0">E920</skuentry>
         <skuentry type="metldr1">0E8E</skuentry>
         <skuentry type="bootldr0">2F4B</skuentry>
         <skuentry type="bootldr1">2F4B</skuentry>
         <skuentry type="bootldrsize">2F4F0</skuentry>
+      </skulist>
+    </skumodels>
+  </type>
+  <type size="250609664" name="PS3Xploit-NAND">
+    <ros0offset>80030</ros0offset>
+    <ros1offset>780020</ros1offset>
+    <Header_Magic>
+      <datafill name="002.01   Header Magic 0x00 Filled Area 0" offset="0" size="10">00</datafill>
+      <binentry name="002.02   Header Magic" offset="10">000000000FACE0FF00000000DEADBEEF00000000000000000000000000007600</binentry>
+      <datafill name="002.03   Header Magic 0x00 Filled Area 1" offset="30" size="1D0">00</datafill>
+    </Header_Magic>
+    <flash_region_table>
+      <binentry name="003.01   Flash Region Table Header" offset="200">00000001000000090000000000EBFE00</binentry>
+      <binentry name="003.02   asecure_loader Offset - Length" offset="210">00000000000006000000000000040000</binentry>
+      <binentry name="003.03   asecure_loader Name" offset="220" ascii="true">617365637572655F6C6F61646572000000000000000000000000000000000000</binentry>
+      <binentry name="003.04   eEID Offset - Length" offset="240">00000000000406000000000000010000</binentry>
+      <binentry name="003.05   eEID Name" offset="250" ascii="true">6545494400000000000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.06   cISD Offset - Length" offset="270">00000000000506000000000000000800</binentry>
+      <binentry name="003.07   cISD Name" offset="280" ascii="true">6349534400000000000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.08   cCSD Offset - Length" offset="2A0">0000000000050E000000000000000800</binentry>
+      <binentry name="003.09   cCSD Name" offset="2B0" ascii="true">6343534400000000000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.10   trvk_prg Offset - Length" offset="2D0">00000000000516000000000000002000</binentry>
+      <binentry name="003.11   trvk_prg Name" offset="2E0" ascii="true">7472766B5F707267000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.12   trvk_pkg Offset - Length" offset="300">00000000000536000000000000002000</binentry>
+      <binentry name="003.13   trvk_pkg Name" offset="310" ascii="true">7472766B5F706B67000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.14   creserved_0 Offset - Length" offset="330">0000000000055600000000000002A800</binentry>
+      <binentry name="003.15   creserved_0 Name" offset="340" ascii="true">6372657365727665645F30000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.16   ros Offset - Length" offset="360">000000000007FE000000000000E00000</binentry>
+      <binentry name="003.17   ros Name" offset="370" ascii="true">726F730000000000000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="003.18   cvtrm Offset - Length" offset="390">0000000000E7FE000000000000040000</binentry>
+      <binentry name="003.19   cvtrm Name" offset="3A0" ascii="true">637674726D000000000000000000000000000000000000000000000000000000</binentry>
+      <datafill name="003.20   Flash Region Table 0x00 Filled Area" offset="3B0" size="450">00</datafill>
+    </flash_region_table>
+    <asure_loader_region>
+      <binentry name="004.01   asecure_loader Header" offset="800">00000001000000010000000000040000</binentry>
+      <binentry name="004.02   metldr Offset" offset="810">0000000000000040</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000EE10</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000EDA0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000EBF0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000EDE0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E7B0</binentry>
+      <!-- refurbished consoles? -->
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E8C0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E8E0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000EA60</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E8D0</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E890</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E920</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000E960</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000F920</binentry>
+      <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000F9B0</binentry>
+      <!-- end of refurbished consoles? -->
+      <binentry name="004.04   metldr Name" offset="820" ascii="true">6D65746C64720000000000000000000000000000000000000000000000000000</binentry>
+      <!-- METLDR -->
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000EDD2F6C622ECA7FAE0D2F76B5D4</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000ED648F43FDE3EEE37119C673663</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000EBB94C6A30BBF2F50752E8DC052</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000EDA81CF2EF41A336897E0493CB8</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E771362F2C2E6835D6FC144F246</binentry>
+      <!-- refurbished consoles? -->
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E887822C41EB9F00FA4830A0B69</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E8A5E1F9CED758B6B94442BF031</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000EA253E7EA237889AE20322A9708</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E8943B6EF4AE20F7400C8809E53</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E85BC78B8F02879A81184A0DA74</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E8E99873BC715F280809C302225</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E92C3266E4BBB282E76B7677095</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E92DBA53B0AB5181D971524615B</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000F8E6ED7BCD81F11EA34425F9B9D</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000F8E656EC1D96595F85C1F9C6196</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000F8E39ECF2D2ACC0E0752248A9F8</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000F97EA838371878EF0892A5EF6B6</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000F97C36C2E4300AACBE6F64FAD92</binentry>
+      <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000F97A2834B1DFD969CC1769517C6</binentry>
+      <!-- end of refurbished consoles? -->
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000EDD</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000ED6</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000EBB</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000EDA</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000E77</binentry>
+      <!-- refurbished consoles? -->
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000E88</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000E8A</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000EA2</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000E89</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000E85</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000E8E</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000E92</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000F8E</binentry>
+      <binentry name="004.06   metldr Binary Size" ismulti="true" offset="850">00000F97</binentry>
+      <!-- end of refurbished consoles? -->
+      <datalist name="004.07   metldr Statistics" offset="840" ldrsize="842">
+        <datatreshold key="*">0,52</datatreshold>
+      </datalist>
+      <datafill name="004.08   asecure_loader 0x00 Filled Area" regionstart="840" regionsize="2E7C0" ldrsize="842">00</datafill>
+    </asure_loader_region>
+    <eEID_region>
+      <binentry name="005.01   eEID Header" offset="40800">0000000600001DD00000000000000000</binentry>
+      <binentry name="005.02   EID0 Offset - Length" offset="40810">00000070000008600000000000000000</binentry>
+      <binentry name="005.03   EID1 Offset - Length" offset="40820">000008D0000002A00000000000000001</binentry>
+      <binentry name="005.04   EID2 Offset - Length" offset="40830">00000B70000007300000000000000002</binentry>
+      <binentry name="005.05   EID3 Offset - Length" offset="40840">000012A0000001000000000000000003</binentry>
+      <binentry name="005.06   EID4 Offset - Length" offset="40850">000013A0000000300000000000000004</binentry>
+      <binentry name="005.07   EID5 Offset - Length" offset="40860">000013D000000A000000000000000005</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="40870">000000010082</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="40870">000000010083</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="40870">000000010084</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="40870">000000010085</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="40870">000000010086</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="40870">000000010087</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="40870">000000010088</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="40870">000000010089</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="40870">00000001008A</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="40870">00000001008B</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="40870">00000001008C</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="40870">00000001008E</binentry>
+      <binentry name="005.08   EID0 IDPS0" ismulti="true" offset="40870">00000001008F</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="40876">0001</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="40876">0002</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="40876">0003</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="40876">0004</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="40876">0005</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="40876">0006</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="40876">0007</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="40876">0008</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="40876">0009</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="40876">000A</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="40876">000B</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="40876">000C</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="40876">000D</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="40876">000E</binentry>
+      <binentry name="005.09   EID0 IDPS1" ismulti="true" offset="40876">000F</binentry>
+      <binentry name="005.10   EID0 Static" offset="40880">0012000B</binentry>
+      <binentry name="005.11   EID2 BlockSize/Padding" offset="41370">0080069000000000000000000000000000000000000000000000000000000000</binentry>
+      <binentry name="005.12   EID3 Static0" offset="41AA0">00000001</binentry>
+      <binentry name="005.13   EID3 Static1" offset="41AA8">00000000</binentry>
+      <binentry name="005.14   EID3 Static2" offset="41AB0">000100D0</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="41BD0">000000010082</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="41BD0">000000010083</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="41BD0">000000010084</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="41BD0">000000010085</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="41BD0">000000010086</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="41BD0">000000010087</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="41BD0">000000010088</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="41BD0">000000010089</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="41BD0">00000001008A</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="41BD0">00000001008B</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="41BD0">00000001008C</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="41BD0">00000001008E</binentry>
+      <binentry name="005.15   EID5 IDPS0" ismulti="true" offset="41BD0">00000001008F</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="41BD6">0001</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="41BD6">0002</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="41BD6">0003</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="41BD6">0004</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="41BD6">0005</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="41BD6">0006</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="41BD6">0007</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="41BD6">0008</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="41BD6">0009</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="41BD6">000A</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="41BD6">000B</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="41BD6">000C</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="41BD6">000D</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="41BD6">000E</binentry>
+      <binentry name="005.16   EID5 IDPS1" ismulti="true" offset="41BD6">000F</binentry>
+      <binentry name="005.17   EID5 Static" offset="41BE0">00120730</binentry>
+      <datafill name="005.18   eEID Region 0xFF Filled Area" offset="425D0" size="E230">FF</datafill>
+      <datalist name="005.19   eEID Statistics0" offset="40880" size="AF0">
+        <datatreshold key="*">1,1</datatreshold>
+      </datalist>
+      <datalist name="005.20   eEID Statistics1" offset="41390" size="1240">
+        <datatreshold key="*">1,1</datatreshold>
+      </datalist>
+    </eEID_region>
+    <cISD_region>
+      <binentry name="006.01   cISD Header" offset="50800">00000003000002700000000000000000</binentry>
+      <binentry name="006.02   cISD0 Offset - Length" offset="50810">00000040000000200000000000000000</binentry>
+      <binentry name="006.03   cISD1 Offset - Length" offset="50820">00000060000002000000000000000001</binentry>
+      <binentry name="006.04   cISD2 Offset - Length" offset="50830">00000260000000100000000000000002</binentry>
+      <datafill name="006.05   cISD0 0xFF Filled Area" offset="50846" size="1A">FF</datafill>
+      <binentry name="006.06   cISD1 IDLog Header" offset="50860" ascii="true">7F49444C</binentry>
+      <binentry name="006.07   cISD1 Semistatic 1" ismulti="true" offset="50864">000200600100</binentry>
+      <binentry name="006.07   cISD1 Semistatic 1" ismulti="true" offset="50864">000300680100</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">001100110012</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">001300130018</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">001300130022</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">001900190028</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">002500250034</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">002800280038</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">003100310041</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">003900390049</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">004500450067</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">004700470071</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">005200520071</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">005400540080</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">005600560086</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">006200620090</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">006200620092</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">006600660096</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">007300730096</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">007900790106</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">008500850106</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">008500850114</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">008700870114</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">009100910114</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">009900990118</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">010101010124</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">010101010128</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">010701070128</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">010701070134</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">011101110138</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">011101110140</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">011301130142</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">012101210150</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">012301230152</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">013101310160</binentry>
+      <binentry name="006.08   cISD1 Semistatic 2" ismulti="true" offset="508A4">016501650180</binentry>
+      <datafill name="006.09   cISD1 0xFF Filled Area 0" offset="508AC" size="4">FF</datafill>
+      <binentry name="006.10   cISD1 Static" offset="508AA">0001</binentry>
+      <binentry name="006.11   cISD1 Semistatic 3" ismulti="true" offset="508B0">0001001100020012</binentry>
+      <binentry name="006.11   cISD1 Semistatic 3" ismulti="true" offset="508B0">0001001200020012</binentry>
+      <binentry name="006.11   cISD1 Semistatic 3" ismulti="true" offset="508B0">0002001100020012</binentry>
+      <binentry name="006.11   cISD1 Semistatic 3" ismulti="true" offset="508B0">0002001200020012</binentry>
+      <datafill name="006.12   cISD1 0xFF Filled Area 1" offset="508C8" size="198">FF</datafill>
+      <datalist name="006.13   cISD1 Statistics" offset="50870" size="3C">
+        <datatreshold key="FF">0</datatreshold>
+      </datalist>
+      <binentry name="006.14   cISD2" ismulti="true" offset="50A60">00000000000000000000000000000000</binentry>
+      <binentry name="006.14   cISD2" ismulti="true" offset="50A60">1FFF0000000000000000000000000000</binentry>
+      <binentry name="006.14   cISD2" ismulti="true" offset="50A60">07FF0000000000000000000000000000</binentry>
+      <binentry name="006.14   cISD2" ismulti="true" offset="50A60">3FFF0000000000000000000000000000</binentry>
+      <datafill name="006.15   cISD 0xFF Filled Area" offset="50A70" size="590">FF</datafill>
+    </cISD_region>
+    <cCSD_region>
+      <binentry name="007.01   cCSD Header" offset="51000">00000001000008000000000000000000</binentry>
+      <binentry name="007.02   cCSD Entry Table" offset="51010">00000020000000300000000000000000</binentry>
+      <datafill name="007.03   cCSD 0xFF Filled Area" offset="51020" size="7E0">FF</datafill>
+    </cCSD_region>
+    <Revokation_region>
+      <binentry name="008.01   trvk_prg0 SCE" offset="51830" ascii="true">53434500</binentry>
+      <!-- same comments than NOR -->
+      <binentry name="008.02   trvk_prg1 SCE" offset="52820" ascii="true">53434500</binentry>
+      <!-- same comments than NOR -->
+      <binentry name="008.03   trvk_pkg0 SCE" offset="53830" ascii="true">53434500</binentry>
+      <!-- same comments than NOR -->
+      <binentry name="008.04   trvk_pkg1 SCE" offset="54820" ascii="true">53434500</binentry>
+      <!-- same comments than NOR -->
+    </Revokation_region>
+    <CoreOS_region>
+       <binentry name="009.00   ROS Header" ismulti="true" offset="80000">000000000070001000000000007000100000000000E000000000000000000000</binentry>
+       <binentry name="009.00   ROS Header" ismulti="true" offset="80000">000000000000002000000000000000200000000000E000000000000000000000</binentry>
+       <binentry name="009.01   ROS0 Header" offset="80020">000000000000000000000000006FFFE0</binentry>
+       <binentry name="009.02   ROS0 Hash" offset="80030">000000010000001900000000006FFFE0</binentry>
+       <binentry name="009.04   ROS1 Header" offset="780010">000000000000000000000000006FFFE0</binentry>
+       <binentry name="009.05   ROS1 Hash" offset="780020">000000010000001900000000006FFFE0</binentry>
+    </CoreOS_region>
+    <cvtrm_region>
+      <binentry name="010.01   cvtrm Header" offset="E80000" ascii="true">534345495654524D000000000000</binentry>
+      <binentry name="010.02   cvtrm Header Static 1" offset="E80010">0000000000E802000000000000000028</binentry>
+      <binentry name="010.03   vtrm Magic 1" offset="E80020" ascii="true">000000005654524D</binentry>
+      <!-- <datafill name="010.04   cvtrm 0xFF Filled Area 0" offset="EC011C" size="2E4">FF</datafill> -->
+      <!-- Data filled on some CECHA. -->
+      <binentry name="010.05   vtrm Magic 2" offset="E80400" ascii="true">000000005654524D</binentry>
+      <!-- <datafill name="010.06   vtrm 0xFF Filled Area" vtrmentrycount_offset="EC043E" regionstart="EC28C0" regionsize="36C00">FF</datafill> -->
+      <!-- Data filled on some CECHA. -->
+      <datafill name="010.07   cvtrm 0x00 Filled Area" offset="EBF000" size="1000">00</datafill>
+    </cvtrm_region>
+    <cell_ext_os_area>
+      <binentry name="011.01   cell_ext_os_area Header" ismulti="true" offset="E740000">FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</binentry>
+      <binentry name="011.01   cell_ext_os_area Header" ismulti="true" offset="E740000">63656C6C5F6578745F6F735F61726561</binentry>
+      <datafill name="011.02   cell_ext_os_area 0xFF Filled Area 0" offset="E740028" size="1D8">FF</datafill>
+      <binentry name="011.03   cell_ext_os_area Break Section" offset="E740200">
+        00000000FFFFFFFFFFFFFFFFFFFFFFFF
+        00000003FFFFFFFFFFFFFFFFFFFFFFFF
+        00000000000000000000FFFFFFFFFFFF
+        000000000000000000000000FFFFFFFF
+        0000000000000000FFFFFFFFFFFFFFFF
+      </binentry>
+      <datafill name="011.04   cell_ext_os_area 0xFF Filled Area 1" offset="E740250" size="1B0">FF</datafill>
+    </cell_ext_os_area>
+    <datamatches>
+      <datamatchid id="1">per console nonce</datamatchid>
+      <datamatchid id="3">metldr size</datamatchid>
+      <datamatchid id="4">vtrm header datas</datamatchid>
+      <datamatchid id="5">vtrm</datamatchid>
+      <id0>
+      </id0>
+      <id1>
+        <datamatch offset="854" length="C" id="1">metldr</datamatch>
+        <datamatch offset="40884" length="C" id="1">eid0</datamatch>
+        <datamatch offset="41AB4" length="C" id="1">eid3</datamatch>
+        <datamatch offset="41BE4" length="C" id="1">eid5</datamatch>
+      </id1>
+      <id3>
+        <datamatch offset="840" length="4" id="3">metldr size 0</datamatch>
+        <datamatch offset="850" length="4" id="3">metldr size 1</datamatch>
+      </id3>
+      <id4>
+        <datamatch offset="E80020" length="10" id="4">vtrm header 1</datamatch>
+        <datamatch offset="E80400" length="10" id="4">vtrm header 2</datamatch>
+      </id4>
+      <id5>
+        <datamatch offset="EB94C0" length="14" id="5" seqrep="417">repetitions seq. 1</datamatch>
+        <datamatch offset="EBE6A0" length="14" id="5" seqrep="78">repetitions seq. 2</datamatch>
+      </id5>
+    </datamatches>
+    <repchecks>
+      <binentry name="Header Magic Repetition" offset="10">000000000FACE0FF00000000DEADBEEF</binentry>
+      <binentry name="asecure_loader Repetition" offset="220">617365637572655F6C6F616465720000</binentry>
+      <binentry name="eEID Repetition" offset="250">65454944000000000000000000000000</binentry>
+      <binentry name="cISD Repetition" offset="280">63495344000000000000000000000000</binentry>
+      <binentry name="cCSD Repetition" offset="2B0">63435344000000000000000000000000</binentry>
+      <binentry name="trvk_prg Repetition" offset="2E0">7472766B5F7072670000000000000000</binentry>
+      <binentry name="trvk_pkg Repetition" offset="310">7472766B5F706B670000000000000000</binentry>
+      <binentry name="ros Repetition" offset="370">726F7300000000000000000000000000</binentry>
+      <binentry name="cvtrm Repetition" offset="3A0">637674726D0000000000000000000000</binentry>
+    </repchecks>
+    <skulistdata>
+      <skudataentry offset="40877" size="1">idps</skudataentry>
+      <skudataentry offset="81E" size="2">metldr0</skudataentry>
+      <skudataentry offset="842" size="2">metldr1</skudataentry>
+    </skulistdata>
+    <skumodels>
+      <skulist name="CECHAxx (COK-001)" minver="1.00">
+        <skuentry type="idps">01</skuentry>
+        <skuentry type="metldr0">EE10</skuentry>
+        <skuentry type="metldr1">0EDD</skuentry>
+      </skulist>
+      <skulist name="CECHExx (COK-002)" minver="2.70">
+        <skuentry type="idps">03</skuentry>
+        <skuentry type="metldr0">EE10</skuentry>
+        <skuentry type="metldr1">0EDD</skuentry>
+      </skulist>
+      <skulist name="CECHExx (COK-002)" minver="1.00">
+        <skuentry type="idps">04</skuentry>
+        <skuentry type="metldr0">EE10</skuentry>
+        <skuentry type="metldr1">0EDD</skuentry>
+      </skulist>
+      <skulist name="CECHAxx (COK-001)" minver="1.00">
+        <skuentry type="idps">01</skuentry>
+        <skuentry type="metldr0">EDA0</skuentry>
+        <skuentry type="metldr1">0ED6</skuentry>
+      </skulist>
+      <skulist name="CECHBxx (COK-001)" minver="1.00">
+        <skuentry type="idps">02</skuentry>
+        <skuentry type="metldr0">EDA0</skuentry>
+        <skuentry type="metldr1">0ED6</skuentry>
+      </skulist>
+      <skulist name="CECHCxx (COK-002)" minver="1.00">
+        <skuentry type="idps">03</skuentry>
+        <skuentry type="metldr0">EDA0</skuentry>
+      </skulist>
+      <skulist name="CECHCxx (COK-002)" minver="1.00">
+        <skuentry type="idps">03</skuentry>
+        <skuentry type="metldr0">EBF0</skuentry>
+        <skuentry type="metldr1">0EBB</skuentry>
+      </skulist>
+      <skulist name="CECHAxx (COK-001)" minver="1.00">
+        <skuentry type="idps">01</skuentry>
+        <skuentry type="metldr0">EDE0</skuentry>
+        <skuentry type="metldr1">0EDA</skuentry>
+      </skulist>
+      <skulist name="CECHBxx (COK-001)" minver="1.00">
+        <skuentry type="idps">02</skuentry>
+        <skuentry type="metldr0">EDE0</skuentry>
+        <skuentry type="metldr1">0EDA</skuentry>
+      </skulist>
+      <skulist name="CECHCxx (COK-002)" minver="1.00">
+        <skuentry type="idps">03</skuentry>
+        <skuentry type="metldr0">EDE0</skuentry>
+        <skuentry type="metldr1">0EDA</skuentry>
+      </skulist>
+      <skulist name="CECHCxx (COK-002)" minver="1.00">
+        <skuentry type="idps">03</skuentry>
+        <skuentry type="metldr0">E7B0</skuentry>
+        <skuentry type="metldr1">0E77</skuentry>
+      </skulist>
+      <skulist name="CECHGxx (SEM-001)" minver="1.90">
+        <skuentry type="idps">05</skuentry>
+        <skuentry type="metldr0">E7B0</skuentry>
+        <skuentry type="metldr1">0E77</skuentry>
+      </skulist>
+      <skulist name="CECHGxx (SEM-001)" minver="2.30">
+        <skuentry type="idps">05</skuentry>
+        <skuentry type="metldr0">E7B0</skuentry>
+        <skuentry type="metldr1">0E77</skuentry>
+      </skulist>
+      <skulist name="CECHGxx (SEM-001)" minver="2.30">
+        <skuentry type="idps">05</skuentry>
+        <skuentry type="metldr0">E8C0</skuentry>
+        <skuentry type="metldr1">0E88</skuentry>
+      </skulist>
+      <skulist name="CECHExx (COK-002)" minver="N/A">
+        <skuentry type="idps">03</skuentry>
+        <skuentry type="metldr0">EA60</skuentry>
+        <skuentry type="metldr1">0EA2</skuentry>
+      </skulist>
+      <skulist name="CECHExx (COK-002W)" minver="3.40">
+        <skuentry type="idps">03</skuentry>
+        <skuentry type="metldr0">E920</skuentry>
+        <skuentry type="metldr1">0E8E</skuentry>
+      </skulist>
+      <skulist name="CECHGxx (SEM-001)" minver="2.30">
+        <!-- Refurbished -->
+        <skuentry type="idps">05</skuentry>
+        <skuentry type="metldr0">E920</skuentry>
+        <skuentry type="metldr1">0E8E</skuentry>
       </skulist>
     </skumodels>
   </type>
@@ -712,10 +1123,14 @@
       <binentry name="004.03   metldr Length" ismulti="true" offset="818">000000000000F9B0</binentry>
       <binentry name="004.04   metldr Name" ismulti="true" offset="820" ascii="true">
         6D65746C647200000000000000000000
-        00000000000000000000000000000000</binentry>  <!--METLDR--> 
+        00000000000000000000000000000000
+      </binentry>
+      <!--METLDR-->
       <binentry name="004.04   metldr Name" ismulti="true" offset="820" ascii="true" disablepatch="true">
         6D65746C64722E320000000000000000
-        00000000000000000000000000000000</binentry> <!-- METLDR2-->
+        00000000000000000000000000000000
+      </binentry>
+      <!-- METLDR2-->
       <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E771362F2C2E6835D6FC144F246</binentry>
       <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E887822C41EB9F00FA4830A0B69</binentry>
       <binentry name="004.05   metldr RevKey" ismulti="true" offset="840">00000E8A5E1F9CED758B6B94442BF031</binentry>
@@ -744,7 +1159,7 @@
       <datalist name="004.07   metldr Statistics" offset="840" ldrsize="842">
         <datatreshold key="*">0,52</datatreshold>
       </datalist>
-      <datafill name="004.08   asecure_loader 0x00 Filled Area" regionstart="840" regionsize="2E7C0" ldrsize="842">00</datafill> 
+      <datafill name="004.08   asecure_loader 0x00 Filled Area" regionstart="840" regionsize="2E7C0" ldrsize="842">00</datafill>
     </asure_loader_region>
     <eEID_region>
       <binentry name="005.01   eEID Header" offset="2F000">0000000600001DD00000000000000000</binentry>
@@ -925,7 +1340,7 @@
       <binentry name="010.04   vtrm0 Magic" offset="EC4000" ascii="true">000000005654524D000000000000</binentry>
       <binentry name="010.05   vtrm0 Reserved Entries" offset="EC4028">0000000000000209</binentry>
       <!-- Some consoles do not follow next rule -->
- <!-- <datafill name="010.06   vtrm0 0xFF Filled Area" vtrmentrycount_offset="EC403E" regionstart="EC5088" regionsize="186C0">FF</datafill> -->
+      <!-- <datafill name="010.06   vtrm0 0xFF Filled Area" vtrmentrycount_offset="EC403E" regionstart="EC5088" regionsize="186C0">FF</datafill> -->
       <binentry name="010.07   cvtrm1 Header" ismulti="true" offset="EE0000">53434549FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.07   cvtrm1 Header" ismulti="true" offset="EE0000">00000000FFFDFFFFFFFFFFFFFFFFFFFF</binentry>
       <binentry name="010.07   cvtrm1 Header" ismulti="true" offset="EE0000">00000000FFFFFFFFFFFFFFFFFFFFFFFF</binentry>
@@ -933,7 +1348,7 @@
       <binentry name="010.09   vtrm1 Magic" offset="EE4000" ascii="true">000000005654524D000000000000</binentry>
       <binentry name="010.10   vtrm1 Reserved Entries" offset="EE4028">0000000000000209</binentry>
       <!-- Some consoles do not follow next rule -->
- <!-- <datafill name="010.11   vtrm1 0xFF Filled Area" vtrmentrycount_offset="EE403E" regionstart="EE5088" regionsize="186C0">FF</datafill> -->
+      <!-- <datafill name="010.11   vtrm1 0xFF Filled Area" vtrmentrycount_offset="EE403E" regionstart="EE5088" regionsize="186C0">FF</datafill> -->
     </cvtrm_region>
     <Second_Region_Header>
       <datafill name="011.01   Second Region Header 0x00 Filled Area 0" offset="F00000" size="10">00</datafill>
@@ -964,7 +1379,7 @@
       <!-- OCRL0200 AREA or 0x00 area (or 0xFF area on DIA-001) -->
       <datafill name="013.06   CELL_EXTNOR_AREA 0xFF Filled Area 0" offset="F69C00" size="16400">FF</datafill>
       <datafill name="013.07   CELL_EXTNOR_AREA 0x00 Filled Area 5" offset="F80030" size="1FFD0">00</datafill>
-	  <datafill name="013.08   CELL_EXTNOR_AREA 0x00 Filled Area 6" regionstart="FA000C" regionsize="93F4" sizefrom="FA000E">00</datafill>
+      <datafill name="013.08   CELL_EXTNOR_AREA 0x00 Filled Area 6" regionstart="FA000C" regionsize="93F4" sizefrom="FA000E">00</datafill>
       <!-- OCRL0200 AREA or 0x00 area (or 0xFF area on DIA-001) -->
       <datafill name="013.09   CELL_EXTNOR_AREA 0xFF Filled Area 1" offset="FA9C00" size="16400">FF</datafill>
     </CELL_EXTNOR_AREA_Region>

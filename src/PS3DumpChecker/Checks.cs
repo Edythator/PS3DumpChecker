@@ -132,32 +132,34 @@
             #endregion Hash check
 
             #region ROSVersion check
-
-            if(Program.GetRegSetting("dorosvercheck", true) && _checkdata.ROS0Offset > 0 && _checkdata.ROS1Offset > 0) {
-                Logger.WriteLine(string.Format("{0,97}", "ROS Version check Started!"));
-                _checkckount++;
-                Common.SendStatus("Parsing Image... Checking ROS0 Version");
-                Logger.Write(string.Format("{0,-70} Result: ", "ROS Version check for ROS0 Started..."));
-                var ret = CheckROSVersion(ref data, _checkdata.ROS0Offset, out _ret.ROS0Version);
-                if (!ret)
-                    Common.AddBad(ref _ret);
-                Logger.WriteLine2(!ret ? "FAILED!" : string.Format("OK! ({0})", _ret.ROS0Version));
-                AddItem(new Common.PartsObject { ActualString = _ret.ROS0Version, ExpectedString = "ROS0 version in the format: ###.###", Name = "009.03   ROS0 Version", Result = ret });
-                _checkckount++;
-                Common.SendStatus("Parsing Image... Checking ROS0 Version");
-                Logger.Write(string.Format("{0,-70} Result: ", "ROS Version check for ROS1 Started..."));
-                ret = CheckROSVersion(ref data, _checkdata.ROS1Offset, out _ret.ROS1Version);
-                if (!ret)
-                    Common.AddBad(ref _ret);
-                Logger.WriteLine2(!ret ? "FAILED!" : string.Format("OK! ({0})", _ret.ROS1Version));
-                AddItem(new Common.PartsObject { ActualString = _ret.ROS1Version, ExpectedString = "ROS1 version in the format: ###.###", Name = "009.06   ROS1 Version", Result = ret });
-            }
-            else if (Program.GetRegSetting("dorosvercheck", true))
-                Logger.WriteLine(string.Format("{0,-70} (nothing to check)", "ROS Version check skipped!"));
-            else
-                Logger.WriteLine(string.Format("{0,-70} (disabled)", "ROS Version check skipped!"));
-            Common.SendStatus("ROS Version checks Done!");
-
+            //if (Common.Types[fi.Length].Name.Value != "PS3Xploit-NAND")
+            //{
+                if (Program.GetRegSetting("dorosvercheck", true) && _checkdata.ROS0Offset > 0 && _checkdata.ROS1Offset > 0)
+                {
+                    Logger.WriteLine(string.Format("{0,97}", "ROS Version check Started!"));
+                    _checkckount++;
+                    Common.SendStatus("Parsing Image... Checking ROS0 Version");
+                    Logger.Write(string.Format("{0,-70} Result: ", "ROS Version check for ROS0 Started..."));
+                    var ret = CheckROSVersion(ref data, _checkdata.ROS0Offset, out _ret.ROS0Version);
+                    if (!ret)
+                        Common.AddBad(ref _ret);
+                    Logger.WriteLine2(!ret ? "FAILED!" : string.Format("OK! ({0})", _ret.ROS0Version));
+                    AddItem(new Common.PartsObject { ActualString = _ret.ROS0Version, ExpectedString = "ROS0 version in the format: ###.###", Name = "009.03   ROS0 Version", Result = ret });
+                    _checkckount++;
+                    Common.SendStatus("Parsing Image... Checking ROS0 Version");
+                    Logger.Write(string.Format("{0,-70} Result: ", "ROS Version check for ROS1 Started..."));
+                    ret = CheckROSVersion(ref data, _checkdata.ROS1Offset, out _ret.ROS1Version);
+                    if (!ret)
+                        Common.AddBad(ref _ret);
+                    Logger.WriteLine2(!ret ? "FAILED!" : string.Format("OK! ({0})", _ret.ROS1Version));
+                    AddItem(new Common.PartsObject { ActualString = _ret.ROS1Version, ExpectedString = "ROS1 version in the format: ###.###", Name = "009.06   ROS1 Version", Result = ret });
+                }
+                else if (Program.GetRegSetting("dorosvercheck", true))
+                    Logger.WriteLine(string.Format("{0,-70} (nothing to check)", "ROS Version check skipped!"));
+                else
+                    Logger.WriteLine(string.Format("{0,-70} (disabled)", "ROS Version check skipped!"));
+                Common.SendStatus("ROS Version checks Done!");
+           // }
             #endregion Hash check
 
             #region Repetitions Check

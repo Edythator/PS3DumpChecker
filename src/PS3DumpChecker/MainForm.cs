@@ -26,7 +26,7 @@
             Common.StatusUpdate += StatusUpdate;
             Common.ListUpdate += CommonOnListUpdate;
             var app = Assembly.GetExecutingAssembly();
-            _version = string.Format("PS3 Dump Checker v{0}.{1} (Build: {2})", app.GetName().Version.Major, app.GetName().Version.Minor, app.GetName().Version.Build);
+            _version = string.Format("PS3 Dump Checker v{0}.{1} (Build: {2}) modified by Edythator", app.GetName().Version.Major, app.GetName().Version.Minor, app.GetName().Version.Build);
             Text = _version;
             Icon = Program.AppIcon;
             actdatabox.Font = new Font(FontFamily.GenericMonospace, actdatabox.Font.Size);
@@ -50,7 +50,10 @@
                     try {
                         File.Delete(s);
                     }
-                    catch(Exception ex) { }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(string.Format(Resources.PatchFailedCantFindPatchFile, ex.Message), Resources.error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     continue;
                 }
                 if (_autoCheck)
@@ -137,9 +140,9 @@
         private void CheckbtnClick(object sender, EventArgs e) {
             var ofd = new OpenFileDialog {
                 Title = Resources.seldump,
-                FileName = "dump.bin",
-                Filter = Resources.ofdfilter,
-                DefaultExt = "bin",
+                FileName = "dump.hex",
+                Filter = "Hexadecimal files (*.hex)|*.hex|Binary files (*.bin)|*.bin|All files (*.*)|*.*",
+                DefaultExt = "hex",
                 AutoUpgradeEnabled = true,
                 AddExtension = true
             };
@@ -278,7 +281,7 @@
                                 Common.Types[size].Name.Value = xml["name"];
                             }
                             break;
-
+                            
                             #region Statistics part
 
                         case "stats":
@@ -560,6 +563,7 @@
                             #region ROS#Offset
 
                         case "ros0offset":
+                            
                             if (!Common.Types.ContainsKey(size))
                                 break;
                             xml.Read();
