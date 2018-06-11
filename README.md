@@ -10,6 +10,7 @@ Status:
 PS3Xploit 239MB partial NAND: ✔️
 
 PS3Xploit 239MB partial eMMC: ❓ (I ported the offsets the same way I ported the NAND offsets, so this should hopefully work.)
+
 (Make sure to use the eMMC.cfg file instead of the default.cfg file if you're going to check your eMMC dump.)
 
 Full 250MB NAND: ✔️
