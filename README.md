@@ -9,13 +9,17 @@ Status:
 
 PS3Xploit 239MB partial NAND: ✔️
 
-PS3Xploit 239MB partial eMMC: ❓ (I ported the offsets the same way I ported the NAND offsets, so this should hopefully work.)
-
-(Make sure to use the eMMC.cfg file instead of the default.cfg file if you're going to check your eMMC dump.)
-
 Full 250MB NAND: ✔️
 
 NOR: ✔️
+
+Super Slim(CECH-4XXX) NOR: ✔️
+
+(Make sure to use the SuperSlim.cfg file instead of the default.cfg file if you're going to check your Super Slim NOR dump.)
+
+PS3Xploit 239MB partial eMMC: ✔️
+
+(Make sure to use the eMMC.cfg file instead of the default.cfg file if you're going to check your eMMC dump.)
 
 This project will hopefully be updated in the future with better 4000 series checking, since it shows false positives.
 
