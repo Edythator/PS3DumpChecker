@@ -19,6 +19,6 @@ Super Slim(CECH-4XXX) NOR: ✔️
 
 PS3Xploit 239MB partial eMMC: ✔️
 
-(Make sure to use the eMMC.cfg file instead of the default.cfg file if you're going to check your eMMC dump.)
+(Make sure to use the SuperSlim.cfg file instead of the default.cfg file if you're going to check your Super Slim eMMC dump.)
 
 NOTE: Nobody takes ANY responsibility for any false negative/false positive given by this app, the responsibilty that your dump is valid is YOURS and yours alone.
