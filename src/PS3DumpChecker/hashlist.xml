@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <root>
   <!-- Bogus MD5 HASH: A51E3A6CD98BA04B3926B65CFA2EC0C7 -->
@@ -9,6 +9,21 @@
     <offset fsize="268435456" type="ROS" name="009.05   ROS1 Hash" size="6FFFE0">7C0020</offset>
   </offsets>
   <type name="ROS">
+    <hash name="4.84 CEX Patched (PS3Xploit v2.0.1)" size="6FFFE0" patched="true">
+      62D189F5A918B5E24A976948B2F4BC50
+    </hash>
+    <hash name="4.84 CEX Patched (FERROX based)" size="6FFFE0" patched="true">
+      ED1F431AC996D2AB06EA40A7193D4912
+    </hash>
+    <hash name="4.84 CEX" size="6FFFE0">
+      E2396DD395E095128BCB69AABA2D1978
+    </hash>
+	<hash name="4.83 CEX (FERROX based)" size="6FFFE0" patched="true">
+      2284CFDB950D14CA199AD9469AAA1EC4
+    </hash>
+    <hash name="4.83 CEX" size="6FFFE0">
+      13446A57ADA4A8EA0A9A88F1173C5735
+    </hash>
     <hash name="4.82 CEX Patched (PS3Xploit v2.0)" size="6FFFE0" patched="true">
       4674CA6C38D45171F45C48191528E36F
     </hash>
@@ -20,6 +35,9 @@
     </hash>
     <hash name="4.82 CEX" size="6FFFE0">
       DBCE1CCF7E8A64DC2A6C7019E1C03749
+    </hash>
+	<hash name="4.81 CEX Patched (PS3Xploit)" size="6FFFE0" patched="true">
+      0C309EB53ABBD7AC77AC77A6B610B10B
     </hash>
     <hash name="4.81 CEX Patched (FERROX based)" size="6FFFE0" patched="true">
       0BBB87121684B43E6727A459365F04FF
