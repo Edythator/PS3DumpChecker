@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
   <type size="16777216" name="NOR">
     <ros0offset>C0010</ros0offset>
     <ros1offset>7C0010</ros1offset>
@@ -537,7 +539,7 @@
       </skulist>
     </skumodels>
   </type>
-    <type size="250609664" name="eMMC">
+  <type size="250609664" name="eMMC">
     <ros0offset>80030</ros0offset>
     <ros1offset>780020</ros1offset>
     <Header_Magic>
@@ -915,3 +917,4 @@
       </skulist>
     </skumodels>
   </type>
+</root>
